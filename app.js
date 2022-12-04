@@ -51,77 +51,6 @@ equalButton.addEventListener("click", () => {
     }
 });
 
-// equalButton.addEventListener("click", () => {
-//     /*
-    
-//     */
-//     let isOperator = false;
-//     let lastIsOperator = false;
-//     let operationFail = false;
-//     let operators = [];
-//     let operationPostFija = [];
-//     let isSquareRoot = false;
-//     let numberTemp = "";
-//     console.log(getOperation().split(""));
-//     getOperation().split("").forEach((element, index, arr) => {
-//         if (operationFail == true) {
-//             return;
-//         }
-//         isOperator = isNaN(element);
-//         if (isSquareRoot) {
-//             numberTemp = Math.round(Math.sqrt(Number(numberTemp)));
-//             isSquareRoot = false;
-//         }
-//         if (!(isOperator && index == arr.length-1) && 
-//             (index == 0 || lastIsOperator != isOperator || !isOperator)) {
-//             lastIsOperator = isOperator;
-//         } else if ((lastIsOperator || isOperator) && getOperatorPriority(element) == 1) {
-//             isSquareRoot = true;
-//             return;
-//         } else {
-//             operationFail = true;
-//             return;
-//         }
-//         if (isOperator && index == 0) {
-//             console.log("Index: " + index);
-//             operationFail = true;
-//             return;
-//         } else if (isOperator) {
-//             if (getOperatorPriority(element) == 1 && isSquareRoot) {
-//                 console.log(`Entro!, con element: ${element}`);
-//                 resultError();
-//                 operationFail = true;
-//                 return;
-//             } else if (getOperatorPriority(element) == 1) {
-//                 isSquareRoot = true;
-//                 return;
-//             } else {
-//                 numberTemp = "(√" + numberTemp + ")";
-//             }
-//             let lastOperator = operators[operators.length-1];
-//             let isHigherPriority = getOperatorPriority(lastOperator) < getOperatorPriority(element);
-//             operationPostFija.push(numberTemp);
-//             numberTemp = "";
-//             if (operators.length != 0 || isHigherPriority) {    
-//                 operators.push(element);
-//             }
-//             while (getOperatorPriority(operators[operators.length-1]) > getOperatorPriority(element)) {
-//                 operationPostFija += operators.pop();
-//             }
-//             operators.push(element);
-//         } else {
-//             if (!lastIsOperator && getOperatorPriority(element)) {
-                
-//             }
-//             numberTemp += element;
-//         }
-//     });
-//     if (operationFail) {
-//         resultError();
-//     }
-//     console.log(operationPostFija);
-// });
-
 function putResultInDisplay(result) {
     resultSpan.innerHTML = result;
     resultSpan.style.opacity = 1;
@@ -246,6 +175,7 @@ function infixToPostfix(infix) {
         }
         if (isSquareRoot) {
             numberTemp = doNSquareRoots(Number(numberTemp), countOfSquareRoots);
+            countOfSquareRoots = 0;
             isSquareRoot = false;
         }
         postfija.push(Number(numberTemp));
@@ -259,6 +189,10 @@ function infixToPostfix(infix) {
         operators.push(element);
         lastIsOperator = true;
     });
+    if (isSquareRoot) {
+        numberTemp = doNSquareRoots(Number(numberTemp), countOfSquareRoots);
+        isSquareRoot = false;
+    }
     if (numberTemp != "") {
         postfija.push(Number(numberTemp));
     }
