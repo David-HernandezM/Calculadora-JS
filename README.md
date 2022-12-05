@@ -14,4 +14,5 @@ Para poder usar las raíces cuadradas, se tiene que poner entre algún operador,
 ![reices_anidadas](./images/raiz_cudrada_anidada.jpg)
 ### En caso de errores:
 Cuando la calculadora detecte una sintaxis inadecuada, mostrara un "Syntax ERROR". Sin embargo, esta no borrara la operación actual, solamente basta ingresar cualquier número u operación, lo agregara a esta y lo mostrara de nuevo, o presionando el botón "DEL", el cual borrara un digito de la operación y volverá a mostrar la operación.
+
 ![caculadora-ejemplo-correcto](./images/sintax_error.jpg)
