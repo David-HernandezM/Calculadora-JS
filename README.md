@@ -10,6 +10,8 @@ Para poder usar las raíces cuadradas, se tiene que poner entre algún operador,
 ![caculadora-ejemplo-correcto](./images/raiz_cuadrada_forma_correcta.jpg)
 #### Ejemplo de un uso incorrecto:
 ![caculadora-ejemplo-correcto](./images/raiz_cuadrada_forma_incorrecta.jpg)
+#### Es capaz de anidar raíces, sigue aplicando la regla del buen uso de estas:
+![reices_anidadas](./images/raiz_cudrada_anidada.jpg)
 ### En caso de errores:
 Cuando la calculadora detecte una sintaxis inadecuada, mostrara un "Syntax ERROR".
 ![caculadora-ejemplo-correcto](./images/sintax_error.jpg)
